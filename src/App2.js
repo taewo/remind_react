@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const App = () => (
   <Router>
@@ -13,19 +13,10 @@ const App = () => (
   </Router>
 );
 
-const Home = () => <h2>Home</h2>;
-const About = () => <h2>About</h2>;
-const Topic = ({ match }) => (
-  <div>
-
-    <h3>Requested Param: {match.params.id1}</h3>
-    <h3>Nick: {match.params.nick}</h3>
-  </div>
-
-);
-const Topics = ({ match }) => {
-  console.log('ttt',match)
-  return (
+const Home = () => <h2>Home</h2>
+const About = () => <h2>About</h2>
+const Topic = ({ match }) => <h3>Requested param: {match.params.id}</h3>;
+const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
 
@@ -38,16 +29,15 @@ const Topics = ({ match }) => {
       </li>
     </ul>
 
-    <Route path={`${match.path}/:nick`} component={Topic} />
-
-    <Route path={`${match.path}/:id1`} component={Topic} />
+    <Route path={`${match.path}/:id`} component={Topic} />
     <Route
       exact
       path={match.path}
-      render={() => <h3>Please select a topic. {match.path}</h3>}
+      render={() => <h3>please select  a topics</h3>}
     />
   </div>
-)};
+)
+
 const Header = () => (
   <ul>
     <li>
@@ -60,6 +50,6 @@ const Header = () => (
       <Link to="/topics">Topics</Link>
     </li>
   </ul>
-);
+)
 
 export default App;
