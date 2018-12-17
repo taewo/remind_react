@@ -31,7 +31,7 @@ class Memo1 extends React.Component {
   }
 
   handleInputChange(event) {
-    console.log('input', event.target.value);
+    console.log('input', event.target);
     this.setState({
       memoInput: event.target.value,
     })
